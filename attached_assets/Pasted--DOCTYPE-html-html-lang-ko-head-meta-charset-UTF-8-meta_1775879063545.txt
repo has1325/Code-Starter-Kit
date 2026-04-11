@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LULULAND - Color Platform</title>
+
+  <!-- SEO -->
+  <meta name="description" content="퍼스널컬러, 인테리어컬러, 디지털컬러, 보석컬러까지 연결하는 컬러 플랫폼 루루랜드" />
+  <meta name="keywords" content="퍼스널컬러, 인테리어컬러, 컬러브랜딩, 보석감정" />
+
+  <style>
+    body { margin:0; font-family:-apple-system, BlinkMacSystemFont, sans-serif; background:#fff; color:#111; }
+    header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.8); backdrop-filter:blur(10px); display:flex; justify-content:space-between; padding:20px 40px; }
+    header a { margin:0 15px; text-decoration:none; color:#111; font-weight:500; }
+
+    .hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      background:linear-gradient(270deg,#ff9a9e,#fad0c4,#a1c4fd,#c2e9fb);
+      background-size:800% 800%;
+      animation:gradient 15s ease infinite;
+      text-align:center;
+      color:#fff;
+    }
+
+    @keyframes gradient {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    h1 { font-size:56px; margin-bottom:10px; }
+    p { font-size:18px; opacity:0.9; }
+
+    .btn { padding:14px 28px; border-radius:30px; border:none; margin:10px; cursor:pointer; }
+    .primary { background:#000; color:#fff; }
+    .secondary { background:#fff; color:#000; }
+
+    section { padding:120px 20px; text-align:center; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:50px; }
+    .card { padding:40px; border-radius:20px; background:#f7f7f7; transition:0.3s; }
+    .card:hover { transform:translateY(-10px); }
+
+    footer { background:#000; color:#fff; padding:60px; text-align:center; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div><b>LULULAND</b></div>
+  <nav>
+    <a href="#personal">Personal</a>
+    <a href="#space">Space</a>
+    <a href="#digital">Digital</a>
+    <a href="#gem">Gem</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Color connects everything</h1>
+  <p>컬러는 당신의 삶을 설계합니다</p>
+  <div>
+    <button class="btn primary" onclick="scrollToSection('personal')">컬러 진단 시작</button>
+    <button class="btn secondary" onclick="scrollToSection('space')">컬러 솔루션 보기</button>
+  </div>
+</section>
+
+<section id="personal">
+  <h2>PERSONAL COLOR</h2>
+  <p>나를 찾는 컬러</p>
+  <button class="btn primary" onclick="openForm('퍼스널컬러')">예약하기</button>
+</section>
+
+<section id="space">
+  <h2>SPACE COLOR</h2>
+  <p>공간이 나를 바꾼다</p>
+  <button class="btn primary" onclick="openForm('인테리어컬러')">상담하기</button>
+</section>
+
+<section id="digital">
+  <h2>DIGITAL COLOR</h2>
+  <p>브랜드를 만드는 컬러</p>
+  <button class="btn primary" onclick="openForm('디지털컬러')">문의하기</button>
+</section>
+
+<section id="gem">
+  <h2>GEM COLOR</h2>
+  <p>가치를 담는 컬러</p>
+  <button class="btn primary" onclick="openForm('보석컬러')">보석 보기</button>
+</section>
+
+<section>
+  <h2>GEM IDENTIFICATION</h2>
+  <p>보석 감정 서비스</p>
+  <button class="btn primary" onclick="openForm('보석감정')">감정 신청</button>
+</section>
+
+<footer>
+  <p>© LULULAND | Color Platform</p>
+</footer>
+
+<!-- 예약 팝업 -->
+<div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+  <div style="background:#fff; padding:30px; margin:100px auto; width:300px; border-radius:20px; text-align:center;">
+    <h3 id="formTitle"></h3>
+    <input placeholder="이름" style="width:100%; padding:10px; margin:10px 0;" />
+    <input placeholder="연락처" style="width:100%; padding:10px; margin:10px 0;" />
+    <button class="btn primary" onclick="pay()">결제하기</button>
+    <br/><br/>
+    <button onclick="closeForm()">닫기</button>
+  </div>
+</div>
+
+<script>
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+function openForm(type){
+  document.getElementById('popup').style.display='block';
+  document.getElementById('formTitle').innerText=type + ' 예약';
+}
+
+function closeForm(){ document.getElementById('popup').style.display='none'; }
+
+function pay(){
+  alert('여기에 카카오페이 / 토스 결제 연동 가능');
+}
+</script>
+
+</body>
+</html>

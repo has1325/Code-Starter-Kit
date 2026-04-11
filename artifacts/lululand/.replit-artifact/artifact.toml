@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "LULULAND - Color Platform"
+version = "1.0.0"
+id = "artifacts/lululand"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21819
+
+[services.development]
+run = "pnpm --filter @workspace/lululand run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/lululand", "run", "build" ]
+publicDir = "artifacts/lululand/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21819"
+BASE_PATH = "/"

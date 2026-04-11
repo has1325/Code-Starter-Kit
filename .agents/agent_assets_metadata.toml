@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "PPUBbTuq9BAACpvlPm_88"
+uri = "file://artifacts/lululand/src/assets/images/personal-color.png"
+type = "image"
+title = "Personal Color Swatches"
+
+[[generated]]
+id = "gSpVySBXZExKEzJotQytl"
+uri = "file://artifacts/lululand/src/assets/images/space-color.png"
+type = "image"
+title = "Luxury Interior Space"
+
+[[generated]]
+id = "fUPJrxmf-VdlPX80Sbw-K"
+uri = "file://artifacts/lululand/src/assets/images/digital-color.png"
+type = "image"
+title = "Digital Branding Abstract"
+
+[[generated]]
+id = "UZVm0gDmo6PN9CawqqB4g"
+uri = "file://artifacts/lululand/src/assets/images/gem-color.png"
+type = "image"
+title = "Luxury Gemstone Macro"
+
+[[generated]]
+id = "HWbIE8Qf9OSgn9Ws1WVXw"
+uri = "file://artifacts/lululand/src/assets/images/gem-id.png"
+type = "image"
+title = "Gem Inspection Tools"

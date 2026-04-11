@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ReservationModalProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ interface ReservationModalProps {
 export function ReservationModal({ isOpen, onClose, serviceType }: ReservationModalProps) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
+  const [memo, setMemo] = useState("");
 
   const handleApply = () => {
     alert(`${serviceType} 상담 신청이 접수되었습니다.`);
@@ -50,6 +52,16 @@ export function ReservationModal({ isOpen, onClose, serviceType }: ReservationMo
               onChange={(e) => setContact(e.target.value)}
               className="bg-transparent border-b border-0 border-border rounded-none px-0 focus-visible:ring-0 focus-visible:border-primary"
               placeholder="010-0000-0000"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="memo" className="text-sm font-medium">메모</Label>
+            <Textarea
+              id="memo"
+              value={memo}
+              onChange={(e) => setMemo(e.target.value)}
+              className="min-h-28 resize-none bg-transparent border-border focus-visible:ring-0 focus-visible:border-primary"
+              placeholder="상담받고 싶은 내용이나 요청사항을 적어주세요."
             />
           </div>
         </div>

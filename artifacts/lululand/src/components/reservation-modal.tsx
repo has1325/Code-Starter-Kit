@@ -14,8 +14,8 @@ export function ReservationModal({ isOpen, onClose, serviceType }: ReservationMo
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
 
-  const handlePayment = () => {
-    alert("여기에 카카오페이 / 토스 결제 연동 가능");
+  const handleApply = () => {
+    alert(`${serviceType} 상담 신청이 접수되었습니다.`);
     onClose();
   };
 
@@ -23,11 +23,14 @@ export function ReservationModal({ isOpen, onClose, serviceType }: ReservationMo
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px] bg-background border-border">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-light">{serviceType} 예약</DialogTitle>
+          <DialogTitle className="text-2xl font-light">{serviceType} 상담 신청</DialogTitle>
           <DialogDescription className="text-muted-foreground font-light">
-            아래 정보를 입력해주시면 결제 페이지로 이동합니다.
+            상담 신청 분야: {serviceType}
           </DialogDescription>
         </DialogHeader>
+        <div className="rounded-2xl border border-border bg-secondary/60 px-4 py-3 text-sm text-muted-foreground">
+          아래 정보를 남겨주시면 {serviceType} 담당자가 상담 예약을 도와드립니다.
+        </div>
         <div className="grid gap-6 py-8">
           <div className="grid gap-2">
             <Label htmlFor="name" className="text-sm font-medium">이름</Label>
@@ -54,8 +57,8 @@ export function ReservationModal({ isOpen, onClose, serviceType }: ReservationMo
           <Button variant="outline" onClick={onClose} className="rounded-full w-full sm:w-auto border-border">
             닫기
           </Button>
-          <Button onClick={handlePayment} className="rounded-full w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90">
-            결제하기
+          <Button onClick={handleApply} className="rounded-full w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90">
+            신청하기
           </Button>
         </DialogFooter>
       </DialogContent>

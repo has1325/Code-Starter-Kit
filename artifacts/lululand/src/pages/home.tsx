@@ -185,7 +185,7 @@ export default function Home() {
                 머무는 공간의 온도가 당신의 기분을 결정합니다. 빛의 방향, 가구의 소재, 그리고 당신의 취향을 분석하여 가장 안락하고 감각적인 인테리어 컬러 팔레트를 설계합니다.
               </p>
               <Button onClick={() => openReservation("인테리어컬러")} className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90">
-                상담하기
+                예약하기
               </Button>
             </motion.div>
             <motion.div 
@@ -221,7 +221,7 @@ export default function Home() {
                 디지털 환경에서 브랜드의 첫인상은 컬러로 결정됩니다. 웹, 앱, SNS 채널을 아우르는 일관되고 매력적인 디지털 컬러 시스템을 구축하여 브랜드의 가치를 높입니다.
               </p>
               <Button onClick={() => openReservation("디지털컬러")} className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90">
-                문의하기
+                예약하기
               </Button>
             </motion.div>
           </div>
@@ -242,7 +242,7 @@ export default function Home() {
                 자연이 빚어낸 영원한 색채. 당신의 탄생석, 퍼스널 컬러, 그리고 담고 싶은 의미를 조화롭게 엮어 변치 않는 아름다움을 지닌 파인 주얼리를 제안합니다.
               </p>
               <Button onClick={() => openReservation("보석컬러")} className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90">
-                보석 보기
+                예약하기
               </Button>
             </motion.div>
             <motion.div 

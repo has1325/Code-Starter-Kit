@@ -58,15 +58,25 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-[100dvh] flex items-center justify-center hero-gradient overflow-hidden">
+      <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center hero-gradient overflow-hidden pt-28 pb-24">
         <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
-        <div className="relative z-10 container mx-auto px-6 text-center text-foreground flex flex-col items-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}>
+        <motion.div
+          className="absolute -left-20 top-28 hidden h-64 w-64 rounded-full bg-white/20 blur-3xl md:block"
+          animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0.6, 0.35] }}
+          transition={{ repeat: Infinity, duration: 6 }}
+        />
+        <motion.div
+          className="absolute -right-24 bottom-24 hidden h-72 w-72 rounded-full bg-primary/25 blur-3xl md:block"
+          animate={{ scale: [1.1, 0.92, 1.1], opacity: [0.5, 0.25, 0.5] }}
+          transition={{ repeat: Infinity, duration: 7 }}
+        />
+        <div className="relative z-10 container mx-auto grid items-center gap-12 px-6 text-foreground lg:grid-cols-[1fr_0.82fr] lg:px-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="text-center lg:text-left">
             <span className="text-sm md:text-base tracking-[0.3em] uppercase mb-6 block font-medium opacity-80">Color Platform</span>
             <h1 className="text-5xl md:text-8xl font-serif mb-6 leading-tight">Color connects <br className="hidden md:block" /><span className="italic font-light">everything</span></h1>
             <p className="text-lg md:text-xl font-light mb-12 tracking-wide text-foreground/80">컬러는 당신의 삶을 설계합니다</p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
               <Button 
                 onClick={() => scrollTo("personal")} 
                 className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90 transition-transform hover:scale-105"
@@ -81,6 +91,35 @@ export default function Home() {
                 컬러 솔루션 보기
               </Button>
             </div>
+          </motion.div>
+          <motion.div
+            className="relative mx-auto h-[420px] w-full max-w-[420px] md:h-[520px] md:max-w-[520px]"
+            initial={{ opacity: 0, scale: 0.92, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.45, ease: "easeOut" }}
+          >
+            <div className="hero-image-glow absolute inset-8 rounded-full" />
+            <motion.div
+              className="absolute left-4 top-8 h-72 w-56 overflow-hidden rounded-[2rem] border border-white/40 bg-white/30 p-2 shadow-2xl backdrop-blur-md md:h-80 md:w-64"
+              animate={{ y: [0, -14, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            >
+              <img src={personalImg} alt="LULULAND 퍼스널 컬러 이미지" className="h-full w-full rounded-[1.5rem] object-cover" />
+            </motion.div>
+            <motion.div
+              className="absolute bottom-8 right-2 h-72 w-56 overflow-hidden rounded-[2rem] border border-white/40 bg-white/30 p-2 shadow-2xl backdrop-blur-md md:h-80 md:w-64"
+              animate={{ y: [0, 16, 0] }}
+              transition={{ repeat: Infinity, duration: 5.8, ease: "easeInOut" }}
+            >
+              <img src={gemImg} alt="LULULAND 보석 컬러 이미지" className="h-full w-full rounded-[1.5rem] object-cover" />
+            </motion.div>
+            <motion.div
+              className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border border-white/50 bg-white/40 p-2 shadow-xl backdrop-blur-md md:h-40 md:w-40"
+              animate={{ rotate: [0, 3, 0, -3, 0], scale: [1, 1.04, 1] }}
+              transition={{ repeat: Infinity, duration: 6.5, ease: "easeInOut" }}
+            >
+              <img src={digitalImg} alt="LULULAND 디지털 컬러 이미지" className="h-full w-full rounded-full object-cover" />
+            </motion.div>
           </motion.div>
         </div>
         

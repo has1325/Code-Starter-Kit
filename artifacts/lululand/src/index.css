@@ -183,9 +183,23 @@
     animation: gradientFlow 15s ease infinite;
   }
 
+  .hero-image-glow {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.82), transparent 34%),
+      radial-gradient(circle at 72% 62%, rgba(188, 218, 255, 0.68), transparent 42%),
+      radial-gradient(circle at 48% 78%, rgba(248, 191, 184, 0.7), transparent 40%);
+    filter: blur(4px);
+    animation: heroGlow 8s ease-in-out infinite;
+  }
+
   @keyframes gradientFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  @keyframes heroGlow {
+    0%, 100% { transform: scale(0.96) rotate(0deg); opacity: 0.72; }
+    50% { transform: scale(1.06) rotate(8deg); opacity: 1; }
   }
 }

@@ -62,10 +62,10 @@ export default function Home() {
         <img
           src={spaceImg}
           alt="LULULAND 메인 배경 이미지"
-          className="absolute inset-0 h-full w-full object-cover opacity-45"
+          className="absolute inset-0 h-full w-full object-cover opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#eef5ff]/95 via-[#f7eef0]/80 to-[#dbe9ff]/70 backdrop-blur-[1px]"></div>
-        <div className="absolute inset-0 bg-white/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#eef5ff]/70 via-[#f7eef0]/48 to-[#dbe9ff]/35"></div>
+        <div className="absolute inset-0 bg-white/5"></div>
         <motion.div
           className="absolute -left-20 top-28 hidden h-64 w-64 rounded-full bg-white/20 blur-3xl md:block"
           animate={{ scale: [1, 1.18, 1], opacity: [0.35, 0.6, 0.35] }}

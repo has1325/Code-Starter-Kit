@@ -39,7 +39,12 @@ export default function Home() {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: {
+      opacity: 1, y: 0, transition: {
+        duration: 0.5,
+        ease: [0.42, 0, 0.58, 1]
+      }
+    }
   };
 
   return (
@@ -100,17 +105,17 @@ export default function Home() {
             <span className="text-sm md:text-base tracking-[0.3em] uppercase mb-6 block font-medium opacity-80">Color Platform</span>
             <h1 className="text-5xl md:text-8xl font-serif mb-6 leading-tight">Color connects <br className="hidden md:block" /><span className="italic font-light">everything</span></h1>
             <p className="text-lg md:text-xl font-light mb-12 tracking-wide text-foreground/80">컬러는 당신의 삶을 설계합니다</p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-              <Button 
-                onClick={() => scrollTo("personal")} 
+              <Button
+                onClick={() => scrollTo("personal")}
                 className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90 transition-transform hover:scale-105"
               >
                 컬러 진단 시작
               </Button>
-              <Button 
-                variant="outline" 
-                onClick={() => scrollTo("space")} 
+              <Button
+                variant="outline"
+                onClick={() => scrollTo("space")}
                 className="rounded-full px-8 py-6 text-base border-foreground text-foreground bg-transparent hover:bg-foreground/5 transition-transform hover:scale-105"
               >
                 컬러 솔루션 보기
@@ -147,9 +152,9 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
-        
+
         {/* Scroll indicator */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer z-10 opacity-70"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -164,7 +169,7 @@ export default function Home() {
       <section id="personal" className="py-32 md:py-48 px-6">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="order-2 md:order-1"
             >
@@ -173,7 +178,7 @@ export default function Home() {
                 <img src={personalImg} alt="Personal Color Swatches" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="order-1 md:order-2 flex flex-col items-start"
             >
@@ -194,7 +199,7 @@ export default function Home() {
       <section id="space" className="py-32 md:py-48 px-6 bg-secondary">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="flex flex-col items-start"
             >
@@ -207,7 +212,7 @@ export default function Home() {
                 예약하기
               </Button>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
             >
               <div className="aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative group">
@@ -222,7 +227,7 @@ export default function Home() {
       <section id="digital" className="py-32 md:py-48 px-6">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="order-2 md:order-1"
             >
@@ -230,7 +235,7 @@ export default function Home() {
                 <img src={digitalImg} alt="Digital Branding" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="order-1 md:order-2 flex flex-col items-start"
             >
@@ -251,7 +256,7 @@ export default function Home() {
       <section id="gem" className="py-32 md:py-48 px-6 bg-secondary">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
               className="flex flex-col items-start"
             >
@@ -264,7 +269,7 @@ export default function Home() {
                 예약하기
               </Button>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
             >
               <div className="aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden shadow-2xl relative group">
@@ -280,19 +285,19 @@ export default function Home() {
         <div className="absolute inset-0 bg-foreground text-background"></div>
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div 
+            <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
             >
               <div className="w-32 h-32 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden mb-12 border-4 border-white/10">
-                 <img src={gemIdImg} alt="Gem Inspection" className="w-full h-full object-cover" />
+                <img src={gemIdImg} alt="Gem Inspection" className="w-full h-full object-cover" />
               </div>
               <span className="text-primary-foreground/60 text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Professional Service</span>
               <h2 className="text-4xl md:text-6xl font-serif mb-8 text-background">보석 감정 서비스</h2>
               <p className="text-background/70 text-lg mb-12 font-light leading-relaxed max-w-2xl mx-auto">
                 가장 정확하고 투명한 기준으로 당신의 보석이 지닌 본연의 가치를 증명합니다. 세계적인 수준의 감정 시스템으로 신뢰를 약속합니다.
               </p>
-              <Button 
-                onClick={() => openReservation("보석감정")} 
+              <Button
+                onClick={() => openReservation("보석감정")}
                 className="rounded-full px-10 py-7 text-lg bg-background text-foreground hover:bg-background/90"
               >
                 감정 신청
@@ -315,10 +320,10 @@ export default function Home() {
       </footer>
 
       {/* Modal */}
-      <ReservationModal 
-        isOpen={modalOpen} 
-        onClose={() => setModalOpen(false)} 
-        serviceType={activeService} 
+      <ReservationModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        serviceType={activeService}
       />
     </div>
   );

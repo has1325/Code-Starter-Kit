@@ -14,6 +14,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [activeService, setActiveService] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,7 @@ export default function Home() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setMobileMenuOpen(false);
     }
   };
 
@@ -43,7 +45,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
       {/* Fixed Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-md border-b border-border py-4" : "bg-transparent py-6"}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || mobileMenuOpen ? "bg-background/90 backdrop-blur-md border-b border-border py-4" : "bg-transparent py-6"}`}>
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="text-2xl font-serif tracking-widest font-bold cursor-pointer" onClick={() => scrollTo("hero")}>
             LULULAND
@@ -54,7 +56,24 @@ export default function Home() {
             <button onClick={() => scrollTo("digital")} className="hover:text-primary transition-colors">Digital</button>
             <button onClick={() => scrollTo("gem")} className="hover:text-primary transition-colors">Gem</button>
           </nav>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="md:hidden rounded-full border border-foreground/30 bg-background/60 px-5 py-2 text-sm font-medium tracking-[0.18em] uppercase backdrop-blur-sm"
+            aria-expanded={mobileMenuOpen}
+            aria-label="모바일 메뉴 열기"
+          >
+            {mobileMenuOpen ? "Close" : "Menu"}
+          </button>
         </div>
+        {mobileMenuOpen && (
+          <nav className="container mx-auto mt-4 grid gap-2 px-6 pb-3 md:hidden">
+            <button onClick={() => scrollTo("personal")} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-left text-sm font-medium uppercase tracking-wide">Personal</button>
+            <button onClick={() => scrollTo("space")} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-left text-sm font-medium uppercase tracking-wide">Space</button>
+            <button onClick={() => scrollTo("digital")} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-left text-sm font-medium uppercase tracking-wide">Digital</button>
+            <button onClick={() => scrollTo("gem")} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-left text-sm font-medium uppercase tracking-wide">Gem</button>
+          </nav>
+        )}
       </header>
 
       {/* Hero Section */}

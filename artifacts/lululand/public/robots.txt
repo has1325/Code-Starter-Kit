@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://whimsical-bonbon-e91509.netlify.app/sitemap.xml
